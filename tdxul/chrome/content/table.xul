@@ -6,4 +6,16 @@
 
     <description><html:h1>µTable</html:h1></description>
 
+    <listbox>
+        <listcols>
+            <listcol flex="1"/>
+            <listcol flex="1"/>
+        </listcols>
+        <listhead>
+            <listheader label="Description" />
+            <listheader label="Amount" />
+        </listhead>
+    </listbox>
+
+
 </window>
