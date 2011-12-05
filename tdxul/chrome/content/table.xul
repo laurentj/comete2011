@@ -16,6 +16,16 @@
             <listheader label="Amount" />
         </listhead>
     </listbox>
-
+    <hbox>
+        <vbox flex="1">
+            <label value="Description" />
+            <textbox />
+        </vbox>
+        <vbox flex="1">
+            <label value="Amount" />
+            <textbox />
+        </vbox>
+        <button label="Add" />
+    </hbox>
 
 </window>
