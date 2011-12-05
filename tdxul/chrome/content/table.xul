@@ -26,7 +26,7 @@
             <label value="Amount" />
             <textbox />
         </vbox>
-        <button label="Add" />
+        <button label="Add" oncommand="ajouterLigne()"/>
     </hbox>
 
 </window>
