@@ -5,9 +5,11 @@
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         style="padding:20px">
 
+    <script type="application/javascript" src="table.js" />
+
     <description><html:h1>µTable</html:h1></description>
 
-    <listbox>
+    <listbox id="comptes">
         <listcols>
             <listcol flex="1"/>
             <listcol flex="1"/>
@@ -20,11 +22,11 @@
     <hbox>
         <vbox flex="1">
             <label value="Description" />
-            <textbox />
+            <textbox id="tbDescription"/>
         </vbox>
         <vbox flex="1">
             <label value="Amount" />
-            <textbox />
+            <textbox id="tbMontant"/>
         </vbox>
         <button label="Add" oncommand="ajouterLigne()"/>
     </hbox>

@@ -16,7 +16,12 @@ function ajouterLigne() {
     var item = document.createElement('listitem');
     item.appendChild(labDesc);
     item.appendChild(labMontant);
-    
-    
+
     // insérer les nouveaux elements dans la listbox
+    var listbox = document.getElementById('comptes');
+    listbox.appendChild(item);
+    
+    // nettoyer le formulaire
+    document.getElementById('tbDescription').value = '';
+    document.getElementById('tbMontant').value = '';
 }
