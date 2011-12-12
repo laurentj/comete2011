@@ -16,8 +16,8 @@
                 <xul:textbox anonid="tbMontant"/>
             </xul:vbox>
             <xul:button label="Add" oncommand="this.parentNode.parentNode.addRow()"/>
-            <xul:button label="Modify" oncommand="modifierLigne()" />
-            <xul:button label="Delete" oncommand="supprimerLigne()" />
+            <xul:button label="Modify" oncommand="this.parentNode.parentNode.modifyRow()" />
+            <xul:button label="Delete" oncommand="this.parentNode.parentNode.deleteRow()" />
         </xul:hbox>
     </content>
     
@@ -25,7 +25,6 @@
       
       <method name="addRow">
         <body><![CDATA[
-
             // récuperer les valeurs
             var desc = document.getAnonymousElementByAttribute(this, 'anonid', 'tbDescription').value;
             var montant = document.getAnonymousElementByAttribute(this, 'anonid', 'tbMontant').value;
@@ -52,7 +51,46 @@
 
         ]]></body>
       </method>
-      
+      <method name="modifyRow">
+        <body><![CDATA[
+            // récupération de la listbox
+            var listbox = document.getElementById('comptes');
+            // récupération de l'élement sélectionné
+            var item    = listbox.selectedItem;
+            
+            if (item == null) {
+                window.alert('Select an item');
+                return;
+            }
+        
+            // récuperer les valeurs
+            var desc =  document.getAnonymousElementByAttribute(this, 'anonid','tbDescription').value;
+            var montant = document.getAnonymousElementByAttribute(this, 'anonid','tbMontant').value;
+            
+            item.children[0].setAttribute('value', desc);
+            item.children[1].setAttribute('value', montant);
+        ]]></body>
+      </method>
+      <method name="deleteRow">
+        <body><![CDATA[
+            // récupération de la listbox
+            var listbox = document.getElementById('comptes');
+            // récupération de l'élement sélectionné
+            var item    = listbox.selectedItem;
+            
+            if (item == null) {
+                window.alert('Select an item');
+                return;
+            }
+            
+            if (window.confirm("Are you sure to delete?")) {
+                listbox.removeChild(item);
+                // nettoyer le formulaire
+                document.getAnonymousElementByAttribute(this, 'anonid','tbDescription').value = '';
+                document.getAnonymousElementByAttribute(this, 'anonid','tbMontant').value = '';
+            }
+        ]]></body>
+      </method>
     </implementation>
 
   </binding>
