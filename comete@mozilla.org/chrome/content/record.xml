@@ -9,13 +9,13 @@
         <xul:hbox>
             <xul:vbox flex="1">
                 <xul:label value="Description" />
-                <xul:textbox id="tbDescription"/>
+                <xul:textbox anonid="tbDescription"/>
             </xul:vbox>
             <xul:vbox flex="1">
                 <xul:label value="Amount" />
-                <xul:textbox id="tbMontant"/>
+                <xul:textbox anonid="tbMontant"/>
             </xul:vbox>
-            <xul:button label="Add" oncommand="ajouterLigne()"/>
+            <xul:button label="Add" oncommand="this.parentNode.parentNode.addRow()"/>
             <xul:button label="Modify" oncommand="modifierLigne()" />
             <xul:button label="Delete" oncommand="supprimerLigne()" />
         </xul:hbox>
@@ -23,8 +23,32 @@
     
     <implementation>
       
-      <method name="add">
+      <method name="addRow">
         <body><![CDATA[
+
+            // récuperer les valeurs
+            var desc = document.getAnonymousElementByAttribute(this, 'anonid', 'tbDescription').value;
+            var montant = document.getAnonymousElementByAttribute(this, 'anonid', 'tbMontant').value;
+            
+            // créer les elements à integrer dans la listbox
+            var labDesc = document.createElement('label');
+            var labMontant = document.createElement('label');
+            
+            labDesc.setAttribute('value', desc );
+            labMontant.setAttribute('value', montant );
+            
+            var item = document.createElement('listitem');
+            item.appendChild(labDesc);
+            item.appendChild(labMontant);
+        
+            // insérer les nouveaux elements dans la listbox
+            var listbox = document.getElementById('comptes');
+            listbox.appendChild(item);
+            
+            // nettoyer le formulaire
+            document.getAnonymousElementByAttribute(this, 'anonid','tbDescription').value = '';
+            document.getAnonymousElementByAttribute(this, 'anonid','tbMontant').value = '';
+
 
         ]]></body>
       </method>
