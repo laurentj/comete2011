@@ -22,19 +22,32 @@
     </content>
     
     <implementation>
+      <property name="description">
+         <getter>
+           return document.getAnonymousElementByAttribute(this, 'anonid', 'tbDescription').value;
+         </getter>
+          <setter>
+          document.getAnonymousElementByAttribute(this, 'anonid', 'tbDescription').value = val;
+          </setter>
+      </property>
       
+      <property name="montant">
+         <getter>
+           return document.getAnonymousElementByAttribute(this, 'anonid', 'tbMontant').value;
+         </getter>
+          <setter>
+          document.getAnonymousElementByAttribute(this, 'anonid', 'tbMontant').value = val;
+          </setter>
+      </property>
+
       <method name="addRow">
         <body><![CDATA[
-            // récuperer les valeurs
-            var desc = document.getAnonymousElementByAttribute(this, 'anonid', 'tbDescription').value;
-            var montant = document.getAnonymousElementByAttribute(this, 'anonid', 'tbMontant').value;
-            
             // créer les elements à integrer dans la listbox
             var labDesc = document.createElement('label');
             var labMontant = document.createElement('label');
-            
-            labDesc.setAttribute('value', desc );
-            labMontant.setAttribute('value', montant );
+
+            labDesc.setAttribute('value', this.description );
+            labMontant.setAttribute('value', this.montant );
             
             var item = document.createElement('listitem');
             item.appendChild(labDesc);
@@ -45,10 +58,8 @@
             listbox.appendChild(item);
             
             // nettoyer le formulaire
-            document.getAnonymousElementByAttribute(this, 'anonid','tbDescription').value = '';
-            document.getAnonymousElementByAttribute(this, 'anonid','tbMontant').value = '';
-
-
+            this.description = '';
+            this.montant = '';
         ]]></body>
       </method>
       <method name="modifyRow">
@@ -62,13 +73,9 @@
                 window.alert('Select an item');
                 return;
             }
-        
-            // récuperer les valeurs
-            var desc =  document.getAnonymousElementByAttribute(this, 'anonid','tbDescription').value;
-            var montant = document.getAnonymousElementByAttribute(this, 'anonid','tbMontant').value;
-            
-            item.children[0].setAttribute('value', desc);
-            item.children[1].setAttribute('value', montant);
+
+            item.children[0].setAttribute('value', this.description);
+            item.children[1].setAttribute('value', this.montant);
         ]]></body>
       </method>
       <method name="deleteRow">
@@ -86,8 +93,8 @@
             if (window.confirm("Are you sure to delete?")) {
                 listbox.removeChild(item);
                 // nettoyer le formulaire
-                document.getAnonymousElementByAttribute(this, 'anonid','tbDescription').value = '';
-                document.getAnonymousElementByAttribute(this, 'anonid','tbMontant').value = '';
+                this.description = '';
+                this.montant = '';
             }
         ]]></body>
       </method>
