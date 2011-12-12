@@ -6,7 +6,19 @@
 
   <binding id="record-form">
     <content>
-
+        <xul:hbox>
+            <xul:vbox flex="1">
+                <xul:label value="Description" />
+                <xul:textbox id="tbDescription"/>
+            </xul:vbox>
+            <xul:vbox flex="1">
+                <xul:label value="Amount" />
+                <xul:textbox id="tbMontant"/>
+            </xul:vbox>
+            <xul:button label="Add" oncommand="ajouterLigne()"/>
+            <xul:button label="Modify" oncommand="modifierLigne()" />
+            <xul:button label="Delete" oncommand="supprimerLigne()" />
+        </xul:hbox>
     </content>
     
     <implementation>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin" type="text/css"?>
+<?xml-stylesheet href="table.css" type="text/css"?>
 <window title="µTable"
         xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -19,18 +20,6 @@
             <listheader label="Amount" />
         </listhead>
     </listbox>
-    <hbox>
-        <vbox flex="1">
-            <label value="Description" />
-            <textbox id="tbDescription"/>
-        </vbox>
-        <vbox flex="1">
-            <label value="Amount" />
-            <textbox id="tbMontant"/>
-        </vbox>
-        <button label="Add" oncommand="ajouterLigne()"/>
-        <button label="Modify" oncommand="modifierLigne()" />
-        <button label="Delete" oncommand="supprimerLigne()" />
-    </hbox>
+    <recordform />
 
 </window>

@@ -1,0 +1,4 @@
+
+recordform {
+    -moz-binding: url('record.xml#record-form');
+}
