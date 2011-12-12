@@ -9,7 +9,7 @@
 
     <description><html:h1>µTable</html:h1></description>
 
-    <listbox id="comptes">
+    <listbox id="comptes" onselect="rempliFormulaire()">
         <listcols>
             <listcol flex="1"/>
             <listcol flex="1"/>
@@ -29,6 +29,7 @@
             <textbox id="tbMontant"/>
         </vbox>
         <button label="Add" oncommand="ajouterLigne()"/>
+        <button label="Modify" oncommand="" />
     </hbox>
 
 </window>
