@@ -40,6 +40,12 @@
           </setter>
       </property>
 
+        <property name="listbox" readonly="true">
+            <getter>
+                return document.getElementById(this.getAttribute('list'));
+            </getter>
+        </property>
+
       <method name="addRow">
         <body><![CDATA[
             // créer les elements à integrer dans la listbox
@@ -54,8 +60,7 @@
             item.appendChild(labMontant);
         
             // insérer les nouveaux elements dans la listbox
-            var listbox = document.getElementById('comptes');
-            listbox.appendChild(item);
+            this.listbox.appendChild(item);
             
             // nettoyer le formulaire
             this.description = '';
@@ -64,10 +69,8 @@
       </method>
       <method name="modifyRow">
         <body><![CDATA[
-            // récupération de la listbox
-            var listbox = document.getElementById('comptes');
             // récupération de l'élement sélectionné
-            var item    = listbox.selectedItem;
+            var item    = this.listbox.selectedItem;
             
             if (item == null) {
                 window.alert('Select an item');
@@ -80,10 +83,8 @@
       </method>
       <method name="deleteRow">
         <body><![CDATA[
-            // récupération de la listbox
-            var listbox = document.getElementById('comptes');
             // récupération de l'élement sélectionné
-            var item    = listbox.selectedItem;
+            var item    = this.listbox.selectedItem;
             
             if (item == null) {
                 window.alert('Select an item');
@@ -91,7 +92,7 @@
             }
             
             if (window.confirm("Are you sure to delete?")) {
-                listbox.removeChild(item);
+                this.listbox.removeChild(item);
                 // nettoyer le formulaire
                 this.description = '';
                 this.montant = '';

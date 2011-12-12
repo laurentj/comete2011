@@ -20,6 +20,6 @@
             <listheader label="Amount" />
         </listhead>
     </listbox>
-    <recordform />
+    <recordform list="comptes" />
 
 </window>
