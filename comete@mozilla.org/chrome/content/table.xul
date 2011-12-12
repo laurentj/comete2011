@@ -29,7 +29,8 @@
             <textbox id="tbMontant"/>
         </vbox>
         <button label="Add" oncommand="ajouterLigne()"/>
-        <button label="Modify" oncommand="" />
+        <button label="Modify" oncommand="modifierLigne()" />
+        <button label="Delete" oncommand="supprimerLigne()" />
     </hbox>
 
 </window>
