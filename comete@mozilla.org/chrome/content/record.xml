@@ -48,6 +48,7 @@
 
       <method name="addRow">
         <body><![CDATA[
+            
             // créer les elements à integrer dans la listbox
             var labDesc = document.createElement('label');
             var labMontant = document.createElement('label');
@@ -61,7 +62,9 @@
         
             // insérer les nouveaux elements dans la listbox
             this.listbox.appendChild(item);
-            
+
+            myDatamanager.addData(this.description,this.montant);
+
             // nettoyer le formulaire
             this.description = '';
             this.montant = '';
@@ -76,6 +79,7 @@
                 window.alert('Select an item');
                 return;
             }
+            myDatamanager.modifyData(this.listbox.selectedIndex, this.description, this.montant);
 
             item.children[0].setAttribute('value', this.description);
             item.children[1].setAttribute('value', this.montant);
@@ -92,6 +96,7 @@
             }
             
             if (window.confirm("Are you sure to delete?")) {
+                myDatamanager.delData(this.listbox.selectedIndex);
                 this.listbox.removeChild(item);
                 // nettoyer le formulaire
                 this.description = '';

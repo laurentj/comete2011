@@ -19,6 +19,7 @@ dataManager.prototype = {
         element.setAttribute('description', description);
         element.setAttribute('amount', amount);
         this._records.documentElement.appendChild(element);
+        this._refresh();
     },
 
     delData: function (idx) {
@@ -26,6 +27,7 @@ dataManager.prototype = {
         if (idx >= 0 && idx < elemRecords.childElementCount) {
             var element = elemRecords.children[idx];
             elemRecords.removeChild(element);
+            this._refresh();
         }
     },
 
@@ -35,6 +37,12 @@ dataManager.prototype = {
             var element = elemRecords.children[idx];
             element.setAttribute('description', newDescription);
             element.setAttribute('amount', newAmount);
+            this._refresh();
         }
+    },
+    
+    _refresh : function() {
+        var s = new XMLSerializer();
+        window.alert( s.serializeToString(this._records) );
     }
 }
