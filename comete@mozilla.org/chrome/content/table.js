@@ -12,8 +12,11 @@ function rempliFormulaire() {
     var montant = item.children[1].getAttribute('value');
 
     // remplissage des textboxs
-    document.getElementById('tbDescription').value = desc;
-    document.getElementById('tbMontant').value = montant;
+    var form = document.getElementById('rform');
+    form.description = desc;
+    form.montant = montant;
+    //document.getElementById('tbDescription').value = desc;
+    //document.getElementById('tbMontant').value = montant;
 }
 
 
