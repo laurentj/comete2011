@@ -43,7 +43,10 @@ dataManager.prototype = {
     },
     
     _refresh : function() {
-        var s = new XMLSerializer();
-        window.alert( s.serializeToString(this._records) );
+        //var s = new XMLSerializer();
+        //window.alert( s.serializeToString(this._records) );
+        
+        var listbox = document.getElementById('comptes');
+        listbox.builder.rebuild();
     }
 }
