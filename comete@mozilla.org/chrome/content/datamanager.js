@@ -1,9 +1,10 @@
 
 function dataManager(){
-    var parser = Components
+    /*var parser = Components
             .classes["@mozilla.org/xmlextras/domparser;1"]
             .createInstance(Components.interfaces
-                                        .nsIDOMParser);
+                                        .nsIDOMParser);*/
+    var parser =  new DOMParser();
     var myXml = '<records />';
 
     this._records = parser.parseFromString(myXml,"text/xml");
