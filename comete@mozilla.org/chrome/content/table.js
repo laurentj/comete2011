@@ -1,17 +1,29 @@
 
+Components.utils.import("resource://gre/modules/Services.jsm");
+
+
 function initApp() {
     
     myDatamanager = new dataManager();
 
     var listbox = document.getElementById('comptes');
     listbox.builder.datasource = myDatamanager._records;
+    
+    Services.obs.addObserver(listboxObserver, "datamanager-change", false);
 }
 
 window.addEventListener('load', initApp, false);
 
-
-
 var myDatamanager;
+
+var listboxObserver = {
+    observe : function (subject , topic, data) {
+        var listbox = document.getElementById('comptes');
+        listbox.builder.rebuild();
+    }
+}
+
+
 
 
 
