@@ -10,7 +10,8 @@
 
     <description><html:h1>µTable</html:h1></description>
 
-    <listbox id="comptes" onselect="rempliFormulaire()">
+    <listbox id="comptes" onselect="rempliFormulaire()"
+                querytype="xml" datasources="">
         <listcols>
             <listcol flex="1"/>
             <listcol flex="1"/>
@@ -19,7 +20,15 @@
             <listheader label="Description" />
             <listheader label="Amount" />
         </listhead>
+        <template>
+            <query expr="record" />
+            <action>
+                <listitem uri="?">
+                    <label value="?description" />
+                    <label value="?amount" />
+                </listitem>
+            </action>
+        </template>
     </listbox>
     <recordform id="rform" list="comptes" />
-
 </window>
