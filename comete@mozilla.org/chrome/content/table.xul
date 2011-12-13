@@ -11,7 +11,7 @@
     <description><html:h1>µTable</html:h1></description>
 
     <listbox id="comptes" onselect="rempliFormulaire()"
-                querytype="xml" datasources="">
+                querytype="xml" datasources="" ref="*">
         <listcols>
             <listcol flex="1"/>
             <listcol flex="1"/>

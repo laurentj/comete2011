@@ -4,7 +4,7 @@ function initApp() {
     myDatamanager = new dataManager();
 
     var listbox = document.getElementById('comptes');
-    listbox.builder.datasources = myDatamanager._records;
+    listbox.builder.datasource = myDatamanager._records;
 }
 
 window.addEventListener('load', initApp, false);
