@@ -22,10 +22,19 @@ dataManager.prototype = {
     },
 
     delData: function (idx) {
-
+        var elemRecords = this._records.documentElement;
+        if (idx >= 0 && idx < elemRecords.childElementCount) {
+            var element = elemRecords.children[idx];
+            elemRecords.removeChild(element);
+        }
     },
 
     modifyData: function (idx, newDescription, newAmount) {
-
+        var elemRecords = this._records.documentElement;
+        if (idx >= 0 && idx < elemRecords.childElementCount) {
+            var element = elemRecords.children[idx];
+            element.setAttribute('description', newDescription);
+            element.setAttribute('amount', newAmount);
+        }
     }
 }
