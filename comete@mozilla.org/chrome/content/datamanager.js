@@ -14,15 +14,18 @@ function dataManager(){
 
 dataManager.prototype = {
 
-    addElement: function (description, amount) {
+    addData: function (description, amount) {
+        var element = this._records.createElement('record');
+        element.setAttribute('description', description);
+        element.setAttribute('amount', amount);
+        this._records.documentElement.appendChild(element);
+    },
+
+    delData: function (idx) {
 
     },
 
-    delElement: function (idx) {
-
-    },
-
-    modifyElement: function (idx, newDescription, newAmount) {
+    modifyData: function (idx, newDescription, newAmount) {
 
     }
 }

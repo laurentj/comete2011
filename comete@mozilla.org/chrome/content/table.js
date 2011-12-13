@@ -1,4 +1,6 @@
 
+var myDatamanager = new dataManager();
+
 
 
 function rempliFormulaire() {
