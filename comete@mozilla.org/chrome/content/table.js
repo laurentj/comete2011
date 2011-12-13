@@ -1,5 +1,17 @@
 
-var myDatamanager = new dataManager();
+function initApp() {
+    
+    myDatamanager = new dataManager();
+
+    var listbox = document.getElementById('comptes');
+    listbox.builder.datasources = myDatamanager._records;
+}
+
+window.addEventListener('load', initApp, false);
+
+
+
+var myDatamanager;
 
 
 
