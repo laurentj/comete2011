@@ -1,0 +1,9 @@
+<!ENTITY window.title "Table de Comptes">
+<!ENTITY listbox.account.description "Libellé">
+<!ENTITY listbox.account.amount "Montant">
+
+<!ENTITY form.account.description "Libellé">
+<!ENTITY form.account.amount "Montant">
+<!ENTITY form.button.add "Ajout">
+<!ENTITY form.button.modify "Modifier">
+<!ENTITY form.button.delete "Éffacer">

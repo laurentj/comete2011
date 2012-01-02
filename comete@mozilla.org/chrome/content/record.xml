@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+<!DOCTYPE window SYSTEM "chrome://comete/locale/table.dtd">
 <bindings
    xmlns="http://www.mozilla.org/xbl"
    xmlns:xul="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
@@ -8,16 +9,16 @@
     <content>
         <xul:hbox>
             <xul:vbox flex="1">
-                <xul:label value="Description" />
+                <xul:label value="&form.account.description;" />
                 <xul:textbox anonid="tbDescription"/>
             </xul:vbox>
             <xul:vbox flex="1">
-                <xul:label value="Amount" />
+                <xul:label value="&form.account.amount;" />
                 <xul:textbox anonid="tbMontant"/>
             </xul:vbox>
-            <xul:button label="Add" oncommand="this.parentNode.parentNode.addRow()"/>
-            <xul:button label="Modify" oncommand="this.parentNode.parentNode.modifyRow()" />
-            <xul:button label="Delete" oncommand="this.parentNode.parentNode.deleteRow()" />
+            <xul:button label="&form.button.add;" oncommand="this.parentNode.parentNode.addRow()"/>
+            <xul:button label="&form.button.modify;" oncommand="this.parentNode.parentNode.modifyRow()" />
+            <xul:button label="&form.button.delete;" oncommand="this.parentNode.parentNode.deleteRow()" />
         </xul:hbox>
     </content>
     
@@ -69,14 +70,17 @@
       </method>
       <method name="deleteRow">
         <body><![CDATA[
-
+            var sb = Services
+                        .strings
+                        .createBundle('chrome://comete/locale/messages.properties');
+            
             // vérification qu'un item est selectionné
             if (this.listbox.selectedIndex == -1) {
-                window.alert('Select an item');
+                window.alert(sb.GetStringFromName('alert.select.item'));
                 return;
             }
 
-            if (window.confirm("Are you sure to delete?")) {
+            if (window.confirm(sb.GetStringFromName('confirm.delete'))) {
                 myDatamanager.delData(this.listbox.selectedIndex);
                 // nettoyer le formulaire
                 this.description = '';

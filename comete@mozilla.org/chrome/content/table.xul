@@ -1,14 +1,16 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="chrome://global/skin" type="text/css"?>
 <?xml-stylesheet href="table.css" type="text/css"?>
-<window title="µTable"
+
+<!DOCTYPE window SYSTEM "chrome://comete/locale/table.dtd">
+<window title="&window.title;"
         xmlns:html="http://www.w3.org/1999/xhtml"
         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
         style="padding:20px">
 
     <script type="application/javascript" src="table.js" />
 
-    <description><html:h1>µTable</html:h1></description>
+    <description><html:h1>&window.title;</html:h1></description>
 
     <listbox id="comptes" onselect="rempliFormulaire()"
                 querytype="xml" datasources="" ref="*">
@@ -17,8 +19,8 @@
             <listcol flex="1"/>
         </listcols>
         <listhead>
-            <listheader label="Description" />
-            <listheader label="Amount" />
+            <listheader label="&listbox.account.description;" />
+            <listheader label="&listbox.account.amount;" />
         </listhead>
         <template>
             <query expr="record" />

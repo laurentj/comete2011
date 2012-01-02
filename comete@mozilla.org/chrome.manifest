@@ -1,4 +1,8 @@
 content comete chrome/content/
 overlay chrome://browser/content/browser.xul chrome://comete/content/overlay.xul
 
+locale comete fr chrome/locale/fr/
+locale comete en-US chrome/locale/en/
+
+
 resource comete modules/

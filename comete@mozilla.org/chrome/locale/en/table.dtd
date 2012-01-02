@@ -1,0 +1,9 @@
+<!ENTITY window.title "Account table">
+<!ENTITY listbox.account.description "Description">
+<!ENTITY listbox.account.amount "Amount">
+
+<!ENTITY form.account.description "Description">
+<!ENTITY form.account.amount "Amount">
+<!ENTITY form.button.add "Add">
+<!ENTITY form.button.modify "Modify">
+<!ENTITY form.button.delete "Delete">
