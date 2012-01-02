@@ -3,8 +3,6 @@ Components.utils.import("resource://gre/modules/Services.jsm");
 Components.utils.import("resource://comete/datamanager.js");
 
 function initApp() {
-    
-    myDatamanager = new dataManager();
 
     var listbox = document.getElementById('comptes');
     listbox.builder.datasource = myDatamanager._records;
@@ -13,8 +11,6 @@ function initApp() {
 }
 
 window.addEventListener('load', initApp, false);
-
-var myDatamanager;
 
 var listboxObserver = {
     observe : function (subject , topic, data) {

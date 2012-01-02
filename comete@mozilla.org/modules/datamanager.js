@@ -1,13 +1,13 @@
-var EXPORTED_SYMBOLS = [ 'dataManager' ];
+var EXPORTED_SYMBOLS = [ 'myDatamanager' ];
 
 Components.utils.import("resource://gre/modules/Services.jsm");
 
 function dataManager(){
-    /*var parser = Components
+    var parser = Components
             .classes["@mozilla.org/xmlextras/domparser;1"]
             .createInstance(Components.interfaces
-                                        .nsIDOMParser);*/
-    var parser =  new DOMParser();
+                                        .nsIDOMParser);
+    //var parser =  new DOMParser();
     var myXml = '<records />';
 
     this._records = parser.parseFromString(myXml,"text/xml");
@@ -51,3 +51,5 @@ dataManager.prototype = {
         Services.obs.notifyObservers(null, "datamanager-change", "");
     }
 }
+
+var myDatamanager = new dataManager();
