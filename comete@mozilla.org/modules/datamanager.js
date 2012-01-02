@@ -1,3 +1,6 @@
+var EXPORTED_SYMBOLS = [ 'dataManager' ];
+
+Components.utils.import("resource://gre/modules/Services.jsm");
 
 function dataManager(){
     /*var parser = Components
